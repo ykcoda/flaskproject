@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir -r requirement.txt
 
 EXPOSE 5000
 
-#start flash app
+#start flash app1
 ENV FLASK_APP=app.py 
 ENV FLASK_RUN_HOST=0.0.0.0 
 
