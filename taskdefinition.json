@@ -1,30 +1,59 @@
 {
-  "family": "flashapptemplate",
-  "networkMode": "awsvpc",
-  "requiresCompatibilities": ["FARGATE"],
-  "cpu": "256",
-  "memory": "512",
-  "executionRoleArn": "arn:aws:iam::495599732171:role/ecsTaskExecutionRole",
-  "containerDefinitions": [
-    {
-      "name": "flask-container",
-      "image": "495599732171.dkr.ecr.us-east-1.amazonaws.com/flaskproject:latest",
-      "essential": true,
-      "portMappings": [
+    "family": "flaskapp2",
+    "containerDefinitions": [
         {
-          "containerPort": 5000,
-          "hostPort": 5000,
-          "protocol": "tcp"
+            "name": "flashapp12",
+            "image": "495599732171.dkr.ecr.us-east-1.amazonaws.com/ykcoda/flaskproject",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "flashapp12-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                },
+                {
+                    "name": "5000",
+                    "containerPort": 5000,
+                    "hostPort": 5000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/flaskapp2",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
-      ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/flashapptemplate",
-          "awslogs-region": "us-east-1",
-          "awslogs-stream-prefix": "ecs"
-        }
-      }
-    }
-  ]
+    ],
+    "executionRoleArn": "arn:aws:iam::495599732171:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "volumes": [],
+    "placementConstraints": [],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "enableFaultInjection": false
 }
