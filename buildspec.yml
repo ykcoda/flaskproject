@@ -4,7 +4,7 @@ env:
   variables:
     AWS_ACCOUNT_ID: "495599732171"
     AWS_DEFAULT_REGION: "us-east-1"
-    IMAGE_REPO_NAME: "495599732171.dkr.ecr.us-east-1.amazonaws.com/ykcoda/flaskproject"
+    IMAGE_REPO_NAME: "ykcoda/flaskproject"
     CONTAINER_NAME: "my-app-container"  # used for ECS or imagedefinitions.json
   # If using CodeBuild parameter store or Secrets Manager, use `parameter-store` or `secrets-manager` blocks
 
