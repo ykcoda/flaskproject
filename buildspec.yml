@@ -33,6 +33,7 @@ phases:
       - echo Pushing the Docker image to Amazon ECR...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - docker push $REPOSITORY_URI:latest
+      - sed -i "s|REPOSITORY_URI_PLACEHOLDER|${REPOSITORY_URI}:${IMAGE_TAG}|g" taskdefinition.json
       - aws ecs register-task-definition --cli-input-json file://taskdefinition.json
       #- echo Creating imagedefinitions.json...
       #- printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
