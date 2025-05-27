@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "flashapp12",
-            "image": "REPOSITORY_URI_PLACEHOLDER",
+            "image": "495599732171.dkr.ecr.us-east-1.amazonaws.com/ykcoda/flaskproject",
             "cpu": 0,
             "portMappings": [
                 {
